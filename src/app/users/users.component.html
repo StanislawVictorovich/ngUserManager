@@ -1,0 +1,86 @@
+<div class="container emp-profile" *ngFor="let user of users; let i = index">
+	<button class="btn btn-danger" (click)="deleteUserByIndex(i)" >❌</button><hr>
+  <form method="post">
+      <div class="row">
+          <div class="col-md-4">
+              <div class="profile-img">
+                  <img src="{{ getAvatarByIndex(i) }}" alt=""/>
+              </div>
+          </div>
+          <div class="col-md-6">
+              <div class="profile-head">
+                          <h5>{{ user.name }}</h5>
+                          <h6>{{ user.company }}</h6>
+                          <p class="proile-rating">AGE : <span> {{ user.age }} </span></p>
+                  <ul class="nav nav-tabs" id="myTab" role="tablist">
+                      <li class="nav-item">
+                          <a class="nav-link active" id="home-tab" data-toggle="tab" role="tab" aria-controls="home" aria-selected="true">About</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-md-4">
+              <div class="profile-work">
+                  <p>Additional information</p>
+                    <a>Gender - {{ user.gender }} </a><br/>
+                    <a>Eye Color - {{ user.eyeColor }} </a><br/>
+                    <a>Balance - {{ user.balance }} </a><br/>
+                    <div *ngIf="user.isActive; then thenBlock else elseBlock"></div><br>
+                      <ng-template #thenBlock><span class="badge badge-secondary">Inactive</span></ng-template>  
+                      <ng-template #elseBlock><span class="badge badge-success">Active</span></ng-template> 
+                    <a>Registered - {{ getUserRegistrationByIndex(i) | date: 'MMMM d, y, h:mm' }} </a><br/>
+                  <p>TAGS</p>
+                    <a *ngFor="let tag of user.tags; let i = index">{{ user.tags[i] }}<br/></a>
+              </div>
+          </div>
+          <div class="col-md-8">
+              <div class="tab-content profile-tab" id="myTabContent">
+                  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Name</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{ user.name }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Email</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{ user.email }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Phone</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{ user.phone }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Address</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{ user.address }}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>About</label>
+                        </div>
+                        <div class="col-md-6">
+                            <p>{{ user.about }}</p>
+                        </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </form>           
+</div>
