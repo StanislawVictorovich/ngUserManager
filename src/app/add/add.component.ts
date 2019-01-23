@@ -10,7 +10,7 @@ export class AddComponent {
 
   constructor(private usersService: UsersService) { }
 
-  public reset():void {
+  public reset(): void {
     this.usersService.updateUsers();
   }
 }

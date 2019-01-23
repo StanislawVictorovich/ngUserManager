@@ -35,7 +35,7 @@ export class UsersService {
     }
   }
 
-  public resetLocalStorage():void {
+  public resetLocalStorage(): void {
     localStorage.clear();
   }
 

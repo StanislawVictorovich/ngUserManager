@@ -10,19 +10,19 @@ import { AddComponent } from './add/add.component';
 import { FormComponent } from './form/form.component';
 
 @NgModule({
-  imports:      [ 
-                  BrowserModule, 
-                  FormsModule, 
-                  ReactiveFormsModule,
-                  HttpClientModule, 
-                  ModalModule.forRoot() 
-                ],
-  declarations: [ 
-                  AppComponent, 
-                  UsersComponent, 
-                  AddComponent, 
-                  FormComponent 
-                ],
-  bootstrap:    [ AppComponent ]
+  imports: [
+    BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    ModalModule.forRoot()
+  ],
+  declarations: [
+    AppComponent,
+    UsersComponent,
+    AddComponent,
+    FormComponent
+  ],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

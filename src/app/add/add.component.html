@@ -1,7 +1,6 @@
 <button class="btn btn-primary btn-lg btn-block" (click)="lgModal.show()">Add new user</button>
 <button class="btn btn-info btn-lg btn-block" (click)="reset()">Reset to defaults</button>
- <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1"
-     role="dialog" aria-labelledby="dialog-sizes-name1">
+ <div bsModal #lgModal="bs-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="dialog-sizes-name1">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
@@ -11,6 +10,6 @@
         </button>
       </div>
       <div class="modal-body">
-    <app-form></app-form>
+    <app-form (onCloseForm)="lgModal.hide()"></app-form>
   </div>
 </div>

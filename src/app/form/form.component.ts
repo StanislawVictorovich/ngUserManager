@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UsersService } from '../users.service';
 
@@ -8,6 +8,9 @@ import { UsersService } from '../users.service';
   styleUrls: ['./form.component.css']
 })
 export class FormComponent implements OnInit {
+
+  @Output() onCloseForm = new EventEmitter<void>();
+
   public form = new FormGroup({
     name: new FormControl('', Validators.required),
     company: new FormControl('', Validators.required),
@@ -42,7 +45,8 @@ export class FormComponent implements OnInit {
   }
 
   onSubmit() {
-    this.usersService.users.push(this.form.value); 
+    this.usersService.users.push(this.form.value);
     this.usersService.saveToLocalStorage();
+    this.onCloseForm.emit();
   }
 }
